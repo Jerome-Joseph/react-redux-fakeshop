@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import {
+    Link
+  } from "react-router-dom";
 
 const Products = () => {
     const [data, setData] = useState([])
@@ -35,9 +38,9 @@ const Products = () => {
                         <div className="card h-100 text-center p-4">
                             <img src={product.image} className="card-img-top" alt="..." style={{height:"250px"}}/>
                             <div className="card-body">
-                                <h5 className="card-title mb-0">{product.title.substring(0,12)}</h5>
-                                <p className="card-text">Price ${product.price}</p>
-                                <a href="/" className="btn btn-primary">Add to Cart</a>
+                                <h5 className="card-title mb-0">{product.title.substring(0,12)}...</h5>
+                                <p className="card-text fw-bold mt-2">Price ${product.price}</p>
+                                <Link to={`/products/${product.id}`} className="btn btn-outline-dark">Buy Now</Link>
                             </div>
                             </div>
                         </div> 

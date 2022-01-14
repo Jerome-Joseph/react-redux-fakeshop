@@ -1,14 +1,17 @@
 import React from "react";
+import {
+  Link
+} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark " style={{height:65}}>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark h-65 ">
         <div className="container d-flex justify-content-between">
           <div>
-            <a className="navbar-brand fs-4" href="/">
+            <Link className="navbar-brand fs-4" to="/">
               FakeShop
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -28,24 +31,24 @@ const Navbar = () => {
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 fs-5 mx-3">
                 <li className="nav-item">
-                  <a className="nav-link mx-2" aria-current="page" href="/">
+                  <Link className="nav-link mx-2" aria-current="page" to="/">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="/product">
+                  <Link className="nav-link mx-2" to="/products">
                     Products
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="/about">
+                  <Link className="nav-link mx-2" to="/about">
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="/contact">
+                  <Link className="nav-link mx-2" to="/contact">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
