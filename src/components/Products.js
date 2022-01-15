@@ -2,26 +2,33 @@ import React, { useEffect, useState } from 'react'
 import {
     Link
   } from "react-router-dom";
+import Spinner from './Spinner';
 
 const Products = () => {
     const [data, setData] = useState([])
     const [filter, setFilter] = useState(data)
+    const [loading, setLoading] = useState(false)
    
     const fetchData = async() =>{
+        setLoading(true);
         let response = await fetch('https://fakestoreapi.com/products')
         setData(await response.clone().json())
         setFilter(await response.json());
+        setLoading(false);
         // console.log(await response.json());
     }
     const filterData = async(category) =>{
+        setLoading(true);
         let response = await fetch(`https://fakestoreapi.com/products/category/${category}`)
         setFilter(await response.json());
+        setLoading(false);
         // console.log(await response.json());
     }
     useEffect(() => {
         fetchData();
     }, [])
     return (
+        <>
         <div className='container text-center mt-5'>
             <h2>All Products</h2>
             <div className="buttons mt-4">
@@ -31,7 +38,7 @@ const Products = () => {
             <button type="button" className="btn btn-dark mx-2 btn-lg" onClick={()=>filterData("jewelery")}>Jewlery</button>
             <button type="button" className="btn btn-dark mx-2 btn-lg" onClick={()=>filterData("electronics")}>Electronics</button>
             </div>
-            <div className="row mt-5">
+            {loading ? <Spinner/> : <div className="row mt-5">
             {filter.map((product)=>{
                 return(
                         <div className="col-md-3 mb-4" key={product.id}>
@@ -46,8 +53,9 @@ const Products = () => {
                         </div> 
                 )
             })}
-             </div>
+             </div>}
         </div>
+    </>
     )
 }
 
