@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Spinner from './Spinner';
+import {addCart} from '../redux/actions/'
 
 const SingleProduct = () => {
     const {id} = useParams();
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
+
+    const dispatch = useDispatch();
+    const addProduct = (product) =>{
+        dispatch(addCart(product));
+    }
 
     const getProduct = async() => {
         setLoading(true);
@@ -36,12 +44,12 @@ const SingleProduct = () => {
                         ${product.price}
                     </p>
                     <p className='lead'>{product.description}</p>
-                    <button type="button" className="btn btn-outline-dark px-4 py-2">
+                    <button type="button" className="btn btn-outline-dark px-4 py-2" onClick={()=>addProduct(product)}>
                         Add to Cart
                     </button>
-                    <a href='/' className="btn btn-dark ms-2 px-3 py-2" role="button">
+                    <Link to='/cart' className="btn btn-dark ms-2 px-3 py-2" role="button">
                         Go to Cart
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>} 

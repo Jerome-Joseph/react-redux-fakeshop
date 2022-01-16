@@ -2,8 +2,10 @@ import React from "react";
 import {
   Link
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const state = useSelector((state)=> state.handleCart)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark h-65 ">
@@ -62,10 +64,10 @@ const Navbar = () => {
             <i className="fas fa-user-plus mx-1"></i>
               Register
             </button>
-            <button type="button" className="btn btn-outline-light mx-2">
+            <Link to='/cart' className="btn btn-outline-light mx-2" role="button">
             <i className="fas fa-shopping-cart mx-1"></i>
-              Cart (0)
-            </button>
+              Cart ({state.length})
+            </Link>
           </div>
         </div>
       </nav>
