@@ -6,6 +6,22 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const state = useSelector((state)=> state.handleCart)
+  const cartZero =()=>{
+    return(
+      <Link to='/cart' className="btn btn-outline-light mx-2" role="button">
+            <i className="fas fa-shopping-cart mx-1"></i>
+              Cart
+      </Link>
+    )
+  }
+  const cartFull =()=>{
+    return(
+      <Link to='/cart' className="btn btn-outline-light mx-2" role="button">
+            <i className="fas fa-shopping-cart mx-1"></i>
+              Cart ({state.length})
+      </Link>
+    )
+  }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark h-65 ">
@@ -64,10 +80,7 @@ const Navbar = () => {
             <i className="fas fa-user-plus mx-1"></i>
               Register
             </button>
-            <Link to='/cart' className="btn btn-outline-light mx-2" role="button">
-            <i className="fas fa-shopping-cart mx-1"></i>
-              Cart ({state.length})
-            </Link>
+            {state.length ===0 ? cartZero() : cartFull()}
           </div>
         </div>
       </nav>
