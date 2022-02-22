@@ -17,22 +17,22 @@ const Home = () => {
     <div className="carousel-item active">
       <img src={img1} className="d-block w-100 img-fluid" alt="..."/>
       <div className="carousel-caption d-none d-md-block" style={{height:"600px"}}>
-        <h3>First slide label</h3>
-        <p>Some representative placeholder content for the first slide.</p>
+        {/* <h3>First slide label</h3>
+        <p>Some representative placeholder content for the first slide.</p> */}
       </div>
     </div>
     <div className="carousel-item">
       <img src={img4} className="d-block w-100 img-fluid" alt="..."/>
       <div className="carousel-caption d-none d-md-block" style={{height:"600px"}}>
-        <h3>Second slide label</h3>
-        <p>Some representative placeholder content for the second slide.</p>
+        {/* <h3>Second slide label</h3>
+        <p>Some representative placeholder content for the second slide.</p> */}
       </div>
     </div>
     <div className="carousel-item">
       <img src={img3} className="d-block w-100 img-fluid" alt="..."/>
       <div className="carousel-caption d-none d-md-block" style={{height:"600px"}}>
-        <h3>Third slide label</h3>
-        <p>Some representative placeholder content for the third slide.</p>
+        {/* <h3>Third slide label</h3>
+        <p>Some representative placeholder content for the third slide.</p> */}
       </div>
     </div>
   </div>
